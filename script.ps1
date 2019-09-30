@@ -42,8 +42,8 @@ Verify-Password
 Write-Host "Change Password"
 
 # Enable Remote Desktop (RDP)
-Invoke-Command –Computername “server1”, “Server2” –ScriptBlock {Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" –Value 0}
-Invoke-Command –Computername “server1”, “Server2” –ScriptBlock {Enable-NetFirewallRule -DisplayGroup "Remote Desktop"}
+Invoke-Command –Computername “$env:COMPUTERNAME” –ScriptBlock {Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" –Value 0}
+Invoke-Command –Computername “$env:COMPUTERNAME” –ScriptBlock {Enable-NetFirewallRule -DisplayGroup "Remote Desktop"}
 Write-Host "Remote Desktop"
 
 # Changes the RDP port number
