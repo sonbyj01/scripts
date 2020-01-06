@@ -51,7 +51,7 @@ Write-Host "Remote Desktop"
 # Changes the RDP port number
 $RegistryPath = "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp"
 $KeyName ="PortNumber"
-$NewPort = "3000"
+$NewPort = "" #some new number
 
 try {
     Set-ItemProperty -Path $RegistryPath -Name $KeyName -Value $NewPort -Force | Out-Null
