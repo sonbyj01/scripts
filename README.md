@@ -5,9 +5,9 @@
 initial_setup.ps1
 ```
 This script will create three new accounts:
-fsaeadmin (Admin)
-hson (Admin) <--- optional
-local (Local) 
+- fsaeadmin (Admin)
+- hson (Admin) <--- optional
+- local (Local) 
 
 In addition, it will run the pre-written script to activate Microsoft Office license (specific to Cooper Union Motorsports FSAE)
 
