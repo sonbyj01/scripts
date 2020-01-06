@@ -12,6 +12,19 @@ function Create-NewLocalAdmin {
     }
 }
 
+# Creates local account
+function Create-NewLocal {
+	[CmdletBinding()]
+	param([string] $NewLocal, [securestring] $Password)
+	process {
+		New-LocalUser "$NewLocal" -Password $Password $FullName "$NewLocal" -Description "Local Account"
+		Write-Verbose "$NewLocal local user created"
+		Set-LocalUser -Name "$NewLocal" -PasswordNeverExpires $True
+		Write-Verbose "$NewLocal password never expires"
+	}
+}
+
+# Password verification method
 function Verify-Password {
     [CmdletBinding()]
     param([string] $username)
@@ -24,7 +37,11 @@ function Verify-Password {
     process {
         if ($pwd1_text -ceq $pwd2_text) {
             Write-Verbose "Passwords matched"
-            Create-NewLocalAdmin -NewLocalAdmin $username -Password $pwd1 -Verbose
+			if ($username -ceq "local") {
+				Create-NewLocal -NewLocal $username -Password $pwd1 -Verbose
+			}else {
+				Create-NewLocalAdmin -NewLocalAdmin $username -Password $pwd1 -Verbose
+			}
         } else {
             Write-Host "Passwords differ"
             Verify-Password -NewLocalAdmin $username
@@ -32,12 +49,16 @@ function Verify-Password {
     }
 }
 
-$fsaeadmin = "fsaeadmin"
-Verify-Password -username $fsaeadmin
+$admin = "fsaeadmin"
+Verify-Password -username $admin
+
+$local = "local"
+Verify-Password -username $local
 
 $hson = "hson"
 Verify-Password -username $hson
 
+# --- Unique to my purposes ---
 # Run pre-installed scripts from Keith
 C:msoffice2016activate.bat
 Write-Verbose "Microsoft Office activated"
