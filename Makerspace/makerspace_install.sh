@@ -10,12 +10,16 @@ sudo apt update && sudo apt dist-upgrade -y && sudo apt install zsh tmux wget
 # will install ohmyzsh
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -y
 
-# will install vscode
-sudo apt install software-properties-common apt-transport-https
-wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-sudo apt-add-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-sudo apt update 
-sudo apt install vscode -y
+# # will install vscode
+# sudo apt install software-properties-common apt-transport-https
+# wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+# sudo apt-add-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+# sudo apt update 
+# sudo apt install vscode -y
+
+# will install vscode using snap
+sudo apt install snapd -y
+sudo snap install --classic code -y
 
 # will download configuration files from @sonbyj01 's github
 cd ~
