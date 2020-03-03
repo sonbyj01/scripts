@@ -27,12 +27,16 @@ wget https://raw.githubusercontent.com/sonbyj01/dotfiles/master/.tmux.conf
 sudo apt-add-repository ppa:linrunner/tlp
 sudo apt update
 sudo apt install tlp tlp-rdw -y
-sudo tlp start
+echo -ne '\n' | sudo tlp start
 
 # will activate two finger scrolling
-sudo apt remove xserver-xorg-input-libinput libinput-tools
-sudo apt install xserver-xorg-input-all xserver-xorg-input-evdev xserver-xorg-input-synaptics -y
+sudo apt-get remove xserver-xorg-input-libinput libinput-tools
+sudo apt-get install xserver-xorg-input-all xserver-xorg-input-evdev xserver-xorg-input-synaptics -y
 synclient VertTwoFingerScroll=1
+
+# will download gnome tweaks 
+sudo add-apt-repository universe
+sudo apt install gnome-tweak-tool -y
 
 # will enable natural scrolling
 gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll true
