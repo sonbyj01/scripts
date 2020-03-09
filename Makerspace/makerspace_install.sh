@@ -5,13 +5,13 @@
 # Updated: February 29th, 2020
 
 # will check for updates, upgrade if necessary, and then install zsh tmux wget
-sudo apt update && sudo apt dist-upgrade -y && sudo apt install zsh tmux wget -y
+sudo apt update && sudo apt dist-upgrade -y && sudo apt install zsh tmux wget git -y
 
 # will install ohmyzsh
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -y
 
 # will install vscode
-sudo apt install software-properties-common apt-transport-https 
+sudo apt install software-properties-common apt-transport-https -y
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt update 
