@@ -12,6 +12,9 @@
 #     -vim
 #     -vscode
 #     -oh-my-zsh
+#	  -net-tools
+#     -htop
+#     -ufw
 
 # requires password only once
 stty -echo
@@ -19,7 +22,13 @@ read -p "Enter password: " password
 stty echo
 
 # checks for updates, followed by doing upgrades, and then installing applications
-echo $password | sudo -S apt update && sudo apt dist-upgrade -y && sudo apt install zsh tmux wget git vim -y
+echo $password | sudo -S apt update && sudo apt dist-upgrade -y && sudo apt install zsh tmux wget git vim htop net-tools ufw -y
+
+# enables default ssh port and turns on ufw
+sudo ufw disable
+sudo ufw allow ssh
+echo 'y' | sudo ufw enable
+sudo ufw reload
 
 # removes current configurations and installs my own
 cd ~
