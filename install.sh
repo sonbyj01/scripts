@@ -2,7 +2,7 @@
 
 # This script is made specifically for my personal linux setup
 # By Henry J Son ( @sonbyj01 )
-# Updated: March 12th, 2020
+# Updated: March 26th, 2020
 
 # Things that are installed
 #     -zsh
@@ -53,3 +53,8 @@ sudo chsh -s /bin/zsh "$USER"
 # sets up git
 git config --global user.email "sonbyj01@gmail.com"
 git config --global user.name "BY Son"
+
+# install speed test and runs it
+wget https://raw.githubusercontent.com/sonbyj01/scripts/master/speedtest.sh
+chmod +x speedtest.sh
+./speedtest.sh
