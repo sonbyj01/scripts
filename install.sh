@@ -46,6 +46,10 @@ echo | sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/
 sudo apt update 
 sudo apt install code -y
 
+# changes default shell
+sudo chsh -s /bin/zsh root
+sudo chsh -s /bin/zsh "$USER" 
+
 # sets up git
 git config --global user.email "sonbyj01@gmail.com"
 git config --global user.name "BY Son"
