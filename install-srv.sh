@@ -22,7 +22,7 @@ stty echo
 echo $password | sudo -S apt update && sudo apt dist-upgrade -y
 
 # installs some applications
-sudo apt install zsh tmux wget vim htop net-tools ufw resolvconf -y
+sudo apt install zsh tmux wget vim htop net-tools ufw git resolvconf -y
 
 # configure ufw
 sudo ufw disable
